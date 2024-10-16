@@ -7,10 +7,6 @@
 - [x] **YouTube**: User/Video Count
 - [x] **TikTok**: User/Video Count
 - [x] **Twitter**: User Count
-- [ ] **Twitch**: To be supported
-- [ ] **Vlive**: To be supported
-- [ ] **Kicklive**: To be supported
-- [ ] **Odysee-live**: To be supported
 
 ## 🕵️ Usage
 
@@ -19,6 +15,56 @@ pip install unofficial_livecounts_api
 ```
 
 ### Tiktok API
+
+#### Classes Overview
+
+### `TiktokUser`
+Represents a TikTok user.
+
+#### Attributes:
+- `user_id` (str): Unique ID of the user.
+- `username` (str): Username of the user.
+- `display_name` (str): Display name of the user.
+- `thumbnail` (str): URL of the user's profile image.
+- `verified` (bool): Whether the user is verified.
+
+### `TiktokUserCount`
+Contains statistics related to a TikTok user.
+
+#### Attributes:
+- `user_id` (str): Unique ID of the user.
+- `follower_count` (int): Number of followers.
+- `like_count` (int): Number of likes.
+- `following_count` (int): Number of users the user is following.
+- `video_count` (int): Number of videos posted.
+
+### `TiktokVideo`
+Represents a TikTok video.
+
+#### Attributes:
+- `video_id` (str): Unique ID of the video.
+- `title` (str): Title of the video.
+- `thumbnail` (str): URL of the video's thumbnail.
+- `user` (TiktokUser): The user who posted the video.
+
+### `TikTokVideoCount`
+Contains statistics related to a TikTok video.
+
+#### Attributes:
+- `video_id` (str): Unique ID of the video.
+- `view_count` (int): Number of views.
+- `like_count` (int): Number of likes.
+- `comment_count` (int): Number of comments.
+- `share_count` (int): Number of shares.
+
+### `TiktokAgent`
+A utility class for fetching user and video information.
+
+#### Methods:
+- `find_user(query: str) -> list[TiktokUser]`: Find users based on the query.
+- `fetch_user_metrics(query: str) -> TiktokUserCount`: Fetch user metrics based on user ID.
+- `find_video(query: str) -> TiktokVideo`: Find a video by its ID or URL.
+- `fetch_video_metrics(query: str) -> TikTokVideoCount`: Fetch video metrics based on video ID or URL.
 
 - **User API**
 
