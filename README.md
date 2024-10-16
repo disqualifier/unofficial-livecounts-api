@@ -8,59 +8,59 @@
 - [x] **TikTok**: User/Video Count
 - [x] **Twitter**: User Count
 
-## 🕵️ Usage
+## 🕵️ Usage (this version)
 
 ```shell
-pip install unofficial_livecounts_api
+pip install git+https://github.com/disqualifier/unofficial-livecounts-api
 ```
 
-### Tiktok API
+## Tiktok API
 
-#### Classes Overview
+### Classes Overview
 
-### `TiktokUser`
+#### `TiktokUser`
 Represents a TikTok user.
 
-#### Attributes:
+##### Attributes:
 - `user_id` (str): Unique ID of the user.
 - `username` (str): Username of the user.
 - `display_name` (str): Display name of the user.
 - `thumbnail` (str): URL of the user's profile image.
 - `verified` (bool): Whether the user is verified.
 
-### `TiktokUserCount`
+#### `TiktokUserCount`
 Contains statistics related to a TikTok user.
 
-#### Attributes:
+##### Attributes:
 - `user_id` (str): Unique ID of the user.
 - `follower_count` (int): Number of followers.
 - `like_count` (int): Number of likes.
 - `following_count` (int): Number of users the user is following.
 - `video_count` (int): Number of videos posted.
 
-### `TiktokVideo`
+#### `TiktokVideo`
 Represents a TikTok video.
 
-#### Attributes:
+##### Attributes:
 - `video_id` (str): Unique ID of the video.
 - `title` (str): Title of the video.
 - `thumbnail` (str): URL of the video's thumbnail.
 - `user` (TiktokUser): The user who posted the video.
 
-### `TikTokVideoCount`
+#### `TikTokVideoCount`
 Contains statistics related to a TikTok video.
 
-#### Attributes:
+##### Attributes:
 - `video_id` (str): Unique ID of the video.
 - `view_count` (int): Number of views.
 - `like_count` (int): Number of likes.
 - `comment_count` (int): Number of comments.
 - `share_count` (int): Number of shares.
 
-### `TiktokAgent`
+#### `TiktokAgent`
 A utility class for fetching user and video information.
 
-#### Methods:
+##### Methods:
 - `find_user(query: str) -> list[TiktokUser]`: Find users based on the query.
 - `fetch_user_metrics(query: str) -> TiktokUserCount`: Fetch user metrics based on user ID.
 - `find_video(query: str) -> TiktokVideo`: Find a video by its ID or URL.
@@ -92,7 +92,7 @@ video_metric_by_query = TiktokAgent.fetch_video_metrics(query="https://tiktok.co
 video_metric_by_video_id = TiktokAgent.fetch_video_metrics(query="122222223233232")
 ```
 
-### YouTube API
+## YouTube API
 
 - **User API**
 
@@ -119,7 +119,7 @@ videos = YoutubeAgent.find_video(query="test")
 video_metrics_by_query = YoutubeAgent.fetch_video_metrics(query="123456789")
 ```
 
-### Twitter API
+## Twitter API
 
 ```python
 from unofficial_livecounts_api.twitter import TwitterAgent
